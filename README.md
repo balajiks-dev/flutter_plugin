@@ -1,4 +1,4 @@
-# flutter_plugin
+# random_number_plugin
 
 A new Flutter plugin.
 

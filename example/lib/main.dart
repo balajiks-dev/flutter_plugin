@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:flutter_plugin/flutter_plugin.dart';
+import 'package:random_number_plugin/random_number_plugin.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
+  int _randomNumber = 0;
 
   @override
   void initState() {
@@ -24,12 +24,12 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    String platformVersion;
+    int randomNumber;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      platformVersion = await FlutterPlugin.platformVersion.toString();
+      randomNumber = await RandomNumberPlugin.getRandom;
     } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
+      randomNumber = 0;
     }
 
     // If the widget was removed from the tree while the asynchronous platform
@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
     if (!mounted) return;
 
     setState(() {
-      _platformVersion = platformVersion;
+      _randomNumber = randomNumber;
     });
   }
 
@@ -50,7 +50,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child: Text('Random Number: $_randomNumber\n'),
         ),
       ),
     );

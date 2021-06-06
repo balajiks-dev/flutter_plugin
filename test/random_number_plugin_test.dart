@@ -1,9 +1,9 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_plugin/flutter_plugin.dart';
+import 'package:random_number_plugin/random_number_plugin.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('flutter_plugin');
+  const MethodChannel channel = MethodChannel('random_number_plugin');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -18,6 +18,6 @@ void main() {
   });
 
   test('getPlatformVersion', () async {
-    expect(await FlutterPlugin.platformVersion, '42');
+    expect(await RandomNumberPlugin.getRandom, "42");
   });
 }

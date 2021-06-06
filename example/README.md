@@ -1,6 +1,6 @@
-# flutter_plugin_example
+# random_number_plugin_example
 
-Demonstrates how to use the flutter_plugin plugin.
+Demonstrates how to use the random_number_plugin plugin.
 
 ## Getting Started
 
